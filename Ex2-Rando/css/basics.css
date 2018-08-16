@@ -1,0 +1,8 @@
+label, select, input{
+  width: 150px;
+  display: inline-block;
+  margin: 5px 0;
+}
+.bibi {
+    padding: 3px 10px 3px 10px;
+}

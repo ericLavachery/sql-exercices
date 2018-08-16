@@ -117,7 +117,7 @@ if ($bdd) {
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="pdo.css">
-    <title>PDO Test</title>
+    <title>Ex1-PDO</title>
 </head>
 <body>
     <form class="" action="pdo.php" method="post" id="townAddForm">
