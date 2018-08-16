@@ -1,0 +1,24 @@
+body {
+    padding: 25px;
+    font-family: arial;
+    font-size: 17px;
+}
+.bibi {
+    padding: 5px 10px 5px 10px;
+}
+.check {
+    padding: 5px 10px 5px 10px;
+}
+.titre {
+    font-weight: bold;
+    font-size: 20px;
+}
+.warning {
+    color: #e42323;
+}
+.congrats {
+    color: #279d14;
+}
+.neutral {
+    color: #000000;
+}
