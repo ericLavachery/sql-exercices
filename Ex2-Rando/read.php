@@ -1,32 +1,36 @@
 <?php
-try
-{
-    // On se connecte à MySQL
-    $bdd = new PDO('mysql:host=localhost;dbname=reunion_island;charset=utf8', 'root', 'zen8070$mysql');
+$servername = "localhost";
+$username = "root";
+$password = "zen8070\$mysql";
+$myDB = "reunion_island";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$myDB;charset=utf8", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "Connected successfully";
+    $stmt = $conn->prepare("SELECT * FROM hiking");
+    $stmt->execute();
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $myTable = '';
+    foreach($stmt->fetchAll() as $k=>$v) {
+        $myTable = $myTable . '<tr>';
+        $myTable = $myTable . '<td class="bibi">' . $v['name'] . '</td>';
+        $myTable = $myTable . '<td class="bibi">' . $v['difficulty'] . '</td>';
+        $myTable = $myTable . '<td class="bibi">' . $v['distance'] . ' km</td>';
+        $myTable = $myTable . '<td class="bibi">' . $v['duration'] . '</td>';
+        $myTable = $myTable . '<td class="bibi">' . $v['height_difference'] . ' m</td>';
+        $myTable = $myTable . '</tr>';
+    }
 }
-catch(Exception $e)
+catch(PDOException $e)
 {
-    // En cas d'erreur, on affiche un message et on arrête tout
-    die('Erreur : '.$e->getMessage());
-}
-$resultat = $bdd->query('SELECT * FROM hiking');
-$donnees = $resultat->fetch();
-$myTable = '';
-while ($donnees = $resultat->fetch())
-{
-    $myTable = $myTable . '<tr>';
-    $myTable = $myTable . '<td class="bibi">' . $donnees['name'] . '</td>';
-    $myTable = $myTable . '<td class="bibi">' . $donnees['difficulty'] . '</td>';
-    $myTable = $myTable . '<td class="bibi">' . $donnees['distance'] . ' km</td>';
-    $myTable = $myTable . '<td class="bibi">' . $donnees['duration'] . '</td>';
-    $myTable = $myTable . '<td class="bibi">' . $donnees['height_difference'] . ' m</td>';
-    $myTable = $myTable . '</tr>';
+    echo "Connection failed: " . $e->getMessage();
 }
 
-// fermeture de la connection à la bdd
-if ($bdd) {
-    $bdd = NULL;
-}
+
+
 ?>
 <!DOCTYPE html>
 <html>
