@@ -3,13 +3,18 @@ body {
     font-family: verdana, arial;
     font-size: 17px;
 }
-label, select {
+label {
   width: 100px;
   display: inline-block;
   margin: 5px 0;
 }
 input {
-  /* width: 150px; */
+    width: 300px;
+  display: inline-block;
+  margin: 5px 0;
+}
+select {
+  width: 315px;
   display: inline-block;
   margin: 5px 0;
 }
