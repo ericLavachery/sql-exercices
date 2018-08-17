@@ -1,0 +1,53 @@
+body {
+    padding: 10px 20px 10px 20px;
+    font-family: verdana, arial;
+    font-size: 17px;
+}
+label {
+  width: 135px;
+  display: inline-block;
+  margin: 5px 0;
+}
+input {
+    width: 300px;
+  display: inline-block;
+  margin: 5px 0;
+}
+select {
+  width: 315px;
+  display: inline-block;
+  margin: 5px 0;
+}
+.bibi {
+    padding: 3px 10px 3px 10px;
+}
+.navig {
+    font-size: 20px;
+    color: rgba(106, 20, 95, 0.4);
+}
+.navig a {
+    color: rgba(106, 20, 95, 0.4);
+    text-decoration: none;
+}
+.navig a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+.navig a:visited {
+    text-decoration: none;
+}
+.navig-active {
+    font-size: 20px;
+    color: #6a145f;
+}
+.navig-active a {
+    color: #6a145f;
+    text-decoration: none;
+}
+.navig-active a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+.navig-active a:visited {
+    text-decoration: none;
+}
