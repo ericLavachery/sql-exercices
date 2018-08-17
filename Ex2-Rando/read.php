@@ -1,6 +1,13 @@
 <?php
 $teou = 'Liste';
 
+session_start ();
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) {
+    $log = TRUE;
+} else {
+    $log = FALSE;
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "zen8070\$mysql";
@@ -23,8 +30,10 @@ try {
         $myTable = $myTable . '<td class="bibi">' . $v['distance'] . ' km</td>';
         $myTable = $myTable . '<td class="bibi">' . $v['duration'] . '</td>';
         $myTable = $myTable . '<td class="bibi">' . $v['height_difference'] . ' m</td>';
-        $myTable = $myTable . '<td class="bibi"><a href="update.php?id=' . $v['id'] . '">Modifier</a></td>';
-        $myTable = $myTable . '<td class="bibi"><a href="delete.php?id=' . $v['id'] . '">Supprimer</a></td>';
+        if ($log) {
+            $myTable = $myTable . '<td class="bibi"><a href="update.php?id=' . $v['id'] . '">Modifier</a></td>';
+            $myTable = $myTable . '<td class="bibi"><a href="delete.php?id=' . $v['id'] . '">Supprimer</a></td>';
+        }
         $myTable = $myTable . '</tr>';
     }
 }

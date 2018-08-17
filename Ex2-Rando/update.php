@@ -1,7 +1,13 @@
 <?php
 $teou = 'Modifier';
-
 $formMessage = '';
+
+session_start ();
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) {
+    $log = TRUE;
+} else {
+    $log = FALSE;
+}
 
 $modID = $_GET['id'];
 
@@ -73,11 +79,16 @@ $conn = null;
     <p><?php include('_navig.php'); ?></p>
 
     <h1>Modifier une randonnée</h1>
-    <form action="" method="post">
-        <?php require('_form.php') ?>
-        <input type="hidden" name="id" value="<?= $modID ?>">
-        <button type="submit" name="button">Modifier</button>
-    </form>
-    <p><?= $formMessage ?></p>
+    <?php if($log): ?>
+        <form action="" method="post">
+            <?php require('_form.php') ?>
+            <input type="hidden" name="id" value="<?= $modID ?>">
+            <label for="button">&nbsp;</label>
+            <button type="submit" name="button">Modifier</button>
+        </form>
+        <p><?= $formMessage ?></p>
+    <?php else: ?>
+        <p>Vous devez vous connecter pour pouvoir modifier une randonnée</p>
+    <?php endif; ?>
 </body>
 </html>

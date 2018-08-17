@@ -1,8 +1,14 @@
 <?php
 $teou = 'Supprimer';
-
 $formMessage = '';
 $delOK = FALSE;
+
+session_start ();
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) {
+    $log = TRUE;
+} else {
+    $log = FALSE;
+}
 
 $modID = $_GET['id'];
 
@@ -66,13 +72,18 @@ $conn = null;
 
     <h1>Supprimer une randonnée</h1>
 
-    <?php if (!$delOK) : ?>
-    <form action="" method="post">
-        <?php require('_form.php') ?>
-        <input type="hidden" name="id" value="<?= $modID ?>">
-        <button type="submit" name="button">Supprimer</button>
-    </form>
+    <?php if($log): ?>
+        <?php if (!$delOK) : ?>
+            <form action="" method="post">
+                <?php require('_form.php') ?>
+                <input type="hidden" name="id" value="<?= $modID ?>">
+                <label for="button">&nbsp;</label>
+                <button type="submit" name="button">Supprimer</button>
+            </form>
+        <?php endif; ?>
+        <p><?= $formMessage ?></p>
+    <?php else: ?>
+        <p>Vous devez vous connecter pour pouvoir supprimer une randonnée</p>
     <?php endif; ?>
-    <p><?= $formMessage ?></p>
 </body>
 </html>

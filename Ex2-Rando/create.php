@@ -1,7 +1,13 @@
 <?php
 $teou = 'Ajouter';
-
 $formMessage = '';
+
+session_start ();
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) {
+    $log = TRUE;
+} else {
+    $log = FALSE;
+}
 
 $name = '';
 $difficulty = '';
@@ -57,10 +63,15 @@ $conn = null;
     <p><?php include('_navig.php'); ?></p>
 
     <h1>Ajouter une randonnée</h1>
-    <form action="" method="post">
-        <?php require('_form.php') ?>
-        <button type="submit" name="button">Ajouter</button>
-    </form>
-    <p><?= $formMessage ?></p>
+    <?php if($log): ?>
+        <form action="" method="post">
+            <?php require('_form.php') ?>
+            <label for="button">&nbsp;</label>
+            <button type="submit" name="button">Ajouter</button>
+        </form>
+        <p><?= $formMessage ?></p>
+    <?php else: ?>
+        <p>Vous devez vous connecter pour pouvoir ajouter une randonnée</p>
+    <?php endif; ?>
 </body>
 </html>
