@@ -1,4 +1,6 @@
 <?php
+$teou = 'Liste';
+
 $servername = "localhost";
 $username = "root";
 $password = "zen8070\$mysql";
@@ -21,7 +23,8 @@ try {
         $myTable = $myTable . '<td class="bibi">' . $v['distance'] . ' km</td>';
         $myTable = $myTable . '<td class="bibi">' . $v['duration'] . '</td>';
         $myTable = $myTable . '<td class="bibi">' . $v['height_difference'] . ' m</td>';
-        $myTable = $myTable . '<td class="bibi"><a href="update.php?id=' . $k . '">Modifier</a></td>';
+        $myTable = $myTable . '<td class="bibi"><a href="update.php?id=' . $v['id'] . '">Modifier</a></td>';
+        $myTable = $myTable . '<td class="bibi"><a href="delete.php?id=' . $v['id'] . '">Supprimer</a></td>';
         $myTable = $myTable . '</tr>';
     }
 }
@@ -38,7 +41,7 @@ catch(PDOException $e)
     <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <p class="navig"><?php include('_navig.php'); ?></p>
+    <p><?php include('_navig.php'); ?></p>
 
     <h1>Liste des randonnées</h1>
     <table>

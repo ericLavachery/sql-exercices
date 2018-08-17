@@ -1,4 +1,6 @@
 <?php
+$teou = 'Ajouter';
+
 $formMessage = '';
 
 $name = '';
@@ -52,15 +54,14 @@ $conn = null;
     <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <p class="navig"><?php include('_navig.php'); ?></p>
+    <p><?php include('_navig.php'); ?></p>
 
     <h1>Ajouter</h1>
     <form action="" method="post">
         <div>
             <label for="name">Name</label>
-            <input type="text" name="name" value="<?= $name ?>">
+            <input type="text" size="25" name="name" value="<?= $name ?>">
         </div>
-
         <div>
             <label for="difficulty">Difficulté</label>
             <select name="difficulty">
@@ -71,18 +72,17 @@ $conn = null;
                 <option value="très difficile"<?php if ($difficulty == 'très difficile') {echo ' selected';} ?>>Très difficile</option>
             </select>
         </div>
-
         <div>
             <label for="distance">Distance</label>
-            <input type="text" name="distance" value="<?= $distance ?>">
+            <input type="text" size="8" name="distance" value="<?= $distance ?>">
         </div>
         <div>
             <label for="duration">Durée</label>
-            <input type="duration" name="duration" value="<?= $duration ?>">
+            <input type="duration" size="8" name="duration" value="<?= $duration ?>">
         </div>
         <div>
             <label for="height_difference">Dénivelé</label>
-            <input type="text" name="height_difference" value="<?= $height ?>">
+            <input type="text" size="8" name="height_difference" value="<?= $height ?>">
         </div>
         <button type="submit" name="button">Envoyer</button>
     </form>
