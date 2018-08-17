@@ -66,13 +66,13 @@ $conn = null;
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Ajouter une randonnée</title>
+    <title>Modifier une randonnée</title>
     <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
     <p><?php include('_navig.php'); ?></p>
 
-    <h1>Modifier</h1>
+    <h1>Modifier une randonnée</h1>
     <form action="" method="post">
         <div>
             <label for="name">Name</label>
@@ -101,7 +101,7 @@ $conn = null;
             <input type="text" size="8" name="height_difference" value="<?= $height ?>">
         </div>
         <input type="hidden" name="id" value="<?= $modID ?>">
-        <button type="submit" name="button">Envoyer</button>
+        <button type="submit" name="button">Modifier</button>
     </form>
     <p><?= $formMessage ?></p>
 </body>

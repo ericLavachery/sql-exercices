@@ -56,7 +56,7 @@ $conn = null;
 <body>
     <p><?php include('_navig.php'); ?></p>
 
-    <h1>Ajouter</h1>
+    <h1>Ajouter une randonnée</h1>
     <form action="" method="post">
         <div>
             <label for="name">Name</label>
@@ -84,7 +84,7 @@ $conn = null;
             <label for="height_difference">Dénivelé</label>
             <input type="text" size="8" name="height_difference" value="<?= $height ?>">
         </div>
-        <button type="submit" name="button">Envoyer</button>
+        <button type="submit" name="button">Ajouter</button>
     </form>
     <p><?= $formMessage ?></p>
 </body>
