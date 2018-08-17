@@ -68,7 +68,7 @@ $conn = null;
     <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <p><?php include('_navig.php'); ?></p>
+    <?php include('_navig.php'); ?>
 
     <h1>Supprimer une randonnée</h1>
 

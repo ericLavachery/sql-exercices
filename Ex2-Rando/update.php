@@ -76,7 +76,7 @@ $conn = null;
     <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <p><?php include('_navig.php'); ?></p>
+    <?php include('_navig.php'); ?>
 
     <h1>Modifier une randonnée</h1>
     <?php if($log): ?>

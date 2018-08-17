@@ -50,7 +50,7 @@ catch(PDOException $e)
     <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <p><?php include('_navig.php'); ?></p>
+    <?php include('_navig.php'); ?>
 
     <h1>Liste des randonnées</h1>
     <table>

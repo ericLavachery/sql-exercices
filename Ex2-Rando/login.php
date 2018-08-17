@@ -60,7 +60,7 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
     <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <p><?php include('_navig.php'); ?></p>
+    <?php include('_navig.php'); ?>
 
     <h1>Login</h1>
     <form action="" method="post">
