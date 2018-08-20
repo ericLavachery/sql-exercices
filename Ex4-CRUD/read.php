@@ -8,7 +8,11 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$myDB;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // 5 premiers clients avec carte id
-    $stmt = $conn->prepare("SELECT * FROM clients WHERE card=1 LIMIT 5;");
+    $stmt = $conn->prepare("SELECT *
+        FROM clients
+        WHERE card=1
+        LIMIT 5;
+        ");
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $clientTable = '';
@@ -18,7 +22,9 @@ try {
         $clientTable = $clientTable . '</tr>';
     }
     // Tous les spectacles
-    $stmt = $conn->prepare("SELECT * FROM showTypes;");
+    $stmt = $conn->prepare("SELECT *
+        FROM showTypes;
+        ");
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $specTable = '';
@@ -28,7 +34,10 @@ try {
         $specTable = $specTable . '</tr>';
     }
     // noms et prénoms des clients dont le nom commence par M (ordre alpha)
-    $stmt = $conn->prepare("SELECT firstName, lastName FROM clients WHERE lastName LIKE 'M%' ORDER BY lastName ASC;");
+    $stmt = $conn->prepare("SELECT firstName, lastName
+        FROM clients
+        WHERE lastName LIKE 'M%'
+        ORDER BY lastName ASC;");
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $mTable = '';
@@ -41,7 +50,10 @@ try {
         $mTable = $mTable . '</tr>';
     }
     // Afficher le titre de tous les spectacles ainsi que l'artiste, la date et l'heure. Trier les titres par ordre alphabétique. Afficher les résultat comme ceci : Spectacle par artiste, le date à heure.
-    $stmt = $conn->prepare("SELECT `title`, `performer`, `date`, `startTime` FROM shows ORDER BY `date` ASC;");
+    $stmt = $conn->prepare("SELECT `title`, `performer`, `date`, `startTime`
+        FROM shows
+        ORDER BY `date` ASC;
+        ");
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $showsTable = '';
