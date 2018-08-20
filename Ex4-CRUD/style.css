@@ -2,6 +2,7 @@ body {
     padding: 10px 20px 10px 20px;
     font-family: verdana, arial;
     font-size: 17px;
+    color: #717171;
 }
 label {
   width: 135px;
@@ -19,11 +20,15 @@ select {
   margin: 5px 0;
 }
 .bibi {
-    padding: 1px 10px 1px 10px;
+    padding: 0px 10px 0px 10px;
+}
+.bibi-line {
+    padding: 0px 10px 8px 10px;
 }
 .navig {
     font-size: 20px;
     color: rgba(106, 20, 95, 0.4);
+    text-decoration: none;
 }
 .navig a {
     color: rgba(106, 20, 95, 0.4);
@@ -39,6 +44,7 @@ select {
 .navig-active {
     font-size: 20px;
     color: #6a145f;
+    text-decoration: none;
 }
 .navig-active a {
     color: #6a145f;
@@ -50,4 +56,24 @@ select {
 }
 .navig-active a:visited {
     text-decoration: none;
+}
+h1 {
+    color: #0e8ac7;
+    font-size: 30px;
+    font-weight: normal;
+    padding: 0;
+    margin-bottom: 14px;
+}
+h3 {
+    color: #dd470f;
+    font-size: 24px;
+    font-weight: normal;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.mauve {
+    color: #be0bb7;
+}
+.noir {
+    color: #000000;
 }
