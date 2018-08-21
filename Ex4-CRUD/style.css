@@ -5,19 +5,25 @@ body {
     color: #a6a6a6;
 }
 label {
-  width: 160px;
-  display: inline-block;
-  margin: 5px 0;
+    width: 160px;
+    display: inline-block;
+    margin: 5px 0;
 }
 input {
     width: 300px;
-  display: inline-block;
-  margin: 5px 0;
+    display: inline-block;
+    margin: 5px 0;
 }
 select {
-  width: 315px;
-  display: inline-block;
-  margin: 5px 0;
+    width: 315px;
+    display: inline-block;
+    margin: 5px 0;
+}
+#showIfCard {
+    display: none;
+}
+#viewIfCard {
+    display: none;
 }
 .titre {
     padding: 0px 10px 10px 10px;
@@ -80,4 +86,7 @@ h3 {
 }
 .noir {
     color: #000000;
+}
+.rouge {
+    color: #dd0f0f;
 }
