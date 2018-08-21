@@ -5,7 +5,7 @@ body {
     color: #a6a6a6;
 }
 label {
-  width: 135px;
+  width: 160px;
   display: inline-block;
   margin: 5px 0;
 }
@@ -20,7 +20,7 @@ select {
   margin: 5px 0;
 }
 .titre {
-    padding: 0px 10px 2px 10px;
+    padding: 0px 10px 10px 10px;
     color: #000000;
 }
 .bibi {

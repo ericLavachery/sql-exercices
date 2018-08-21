@@ -2,11 +2,12 @@
 $teou = 'Ajouter Client';
 $formMessage = '';
 
-$name = '';
-$difficulty = '';
-$distance = '';
-$duration = '';
-$height = '';
+$firstName = '';
+$lastName = '';
+$birthDate = '';
+$formBD = '';
+$card = '';
+$cardNumber = '';
 
 $servername = "localhost";
 $username = "root";
@@ -20,9 +21,15 @@ try {
     if (isset($_POST["button"])) {
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
-        $birthDate = $_POST['birthDate'];
+        $formBD = $_POST['birthDate'];
+        $bdate = date_create_from_format('d/m/Y', $formBD);
+        $birthDate = date_format($bdate, 'Y-m-d');
         $card = $_POST['card'];
-        $cardNumber = $_POST['cardNumber'];
+        if ($card == 1) {
+            $cardNumber = $_POST['cardNumber'];
+        } else {
+            $cardNumber = null;
+        }
         $tab = array(
             ':firstName' => $firstName,
             ':lastName' => $lastName,
@@ -49,40 +56,15 @@ $conn = null;
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Ajouter une randonnée</title>
-    <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
+    <title>COLYSEUM | Ajout client</title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
+    <?php include('_navig.php'); ?>
 
     <h1>Ajouter un CLIENT</h1>
         <form action="" method="post">
-            <div>
-                <label for="name">Name</label>
-                <input type="text" name="name" value="<?= $name ?>">
-            </div>
-            <div>
-                <label for="difficulty">Difficulté</label>
-                <select name="difficulty">
-                    <option value="très facile"<?php if ($difficulty == 'très facile') {echo ' selected';} ?>>Très facile</option>
-                    <option value="facile"<?php if ($difficulty == 'facile') {echo ' selected';} ?>>Facile</option>
-                    <option value="moyen"<?php if ($difficulty == 'moyen') {echo ' selected';} ?>>Moyen</option>
-                    <option value="difficile"<?php if ($difficulty == 'difficile') {echo ' selected';} ?>>Difficile</option>
-                    <option value="très difficile"<?php if ($difficulty == 'très difficile') {echo ' selected';} ?>>Très difficile</option>
-                </select>
-            </div>
-            <div>
-                <label for="distance">Distance</label>
-                <input type="text" name="distance" value="<?= $distance ?>">
-            </div>
-            <div>
-                <label for="duration">Durée</label>
-                <input type="duration" name="duration" value="<?= $duration ?>">
-            </div>
-            <div>
-                <label for="height_difference">Dénivelé</label>
-                <input type="text" name="height_difference" value="<?= $height ?>">
-            </div>
-            <label for="button">&nbsp;</label>
+            <?php include('_form.php'); ?>
             <button type="submit" name="button">Ajouter</button>
         </form>
         <p><?= $formMessage ?></p>

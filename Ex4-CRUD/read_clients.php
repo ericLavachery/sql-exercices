@@ -29,7 +29,8 @@ catch(PDOException $e)
     <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-
+    <?php include('_navig.php'); ?>
+    
     <h1>Liste des CLIENTS</h1>
     <table>
         <tr>
@@ -38,7 +39,7 @@ catch(PDOException $e)
             <td class="titre">Date de naissance</td>
             <td class="titre">Carte?</td>
             <td class="titre">N°Carte</td>
-            <td class="titre"></td>
+            <td class="titre"><a href="create_client.php">Ajouter</a></td>
         </tr>
         <?php
         foreach($stmt->fetchAll() as $k=>$v) {
