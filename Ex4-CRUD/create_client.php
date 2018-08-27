@@ -1,6 +1,7 @@
 <?php
 $teou = 'Ajouter Client';
 $formMessage = '';
+$cardMessage = '';
 
 $firstName = '';
 $lastName = '';
@@ -34,24 +35,32 @@ try {
             $cardNumber = null;
             $cardTypesId = null;
         }
+        // ajouter client
         $tab = array(
             ':firstName' => $firstName,
             ':lastName' => $lastName,
             ':birthDate' => $birthDate,
             ':card' => $card,
-            ':cardNumber' => $cardNumber,
-            ':cardTypesId' => $cardTypesId
+            ':cardNumber' => $cardNumber
         );
         $sql = "INSERT INTO clients (firstName, lastName, birthDate, card, cardNumber) VALUES (:firstName, :lastName, :birthDate, :card, :cardNumber)";
         $stmt = $conn->prepare($sql);
         $stmt->execute($tab);
         $formMessage = 'Le nouveau a bien été ajouté';
-        // echo "New record created successfully";
+        // ajouter carte
+        $tab = array(
+            ':cardTypesId' => $cardTypesId,
+            ':cardNumber' => $cardNumber
+        );
+        $sql = "INSERT INTO cards (cardTypesId, cardNumber) VALUES (:cardTypesId, :cardNumber)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($tab);
+        $cardMessage = 'La carte a bien été ajoutée';
     }
 }
 catch(PDOException $e)
 {
-    echo $sql . "<br>" . $e->getMessage();
+    echo $sql . ' ' . $e->getMessage();
 }
 
 $conn = null;
@@ -70,9 +79,10 @@ $conn = null;
     <h1>Ajouter un CLIENT</h1>
         <form action="" method="post">
             <?php include('_form.php'); ?>
-            <button type="submit" name="button">Ajouter</button>
+            <button type="submit" name="button" id="modify">Ajouter</button>
         </form>
         <p class="rouge"><?= $formMessage ?></p>
+        <p class="rouge"><?= $cardMessage ?></p>
 
 </body>
 </html>

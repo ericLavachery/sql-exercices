@@ -21,6 +21,7 @@
 <div id="showIfCard">
     <label for="cardNumber">N° de carte</label>
     <input type="text" name="cardNumber" value="<?= $cardNumber ?>" maxlength="4">
+    <input type="hidden" name="cardNumberRem" value="<?= $cardNumber ?>">
 </div>
 <div id="viewIfCard">
     <label for="cardTypesId">Type de carte</label>
@@ -43,5 +44,9 @@ function showDiv(elem){
         document.getElementById('showIfCard').style.display = "none";
         document.getElementById('viewIfCard').style.display = "none";
     }
+}
+function startWithDiv(){
+        document.getElementById('showIfCard').style.display = "block";
+        document.getElementById('viewIfCard').style.display = "block";
 }
 </script>
